@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinnerStream">
+        <item id="fybca">FY-BCA</item>
+        <item id="sybca">SY-BCA</item>
+        <item id="tybca">TY-BCA</item>
+    </string-array>
+    <string-array name="spinnerSub">
+        <item>CPPM</item>
+        <item>JAVA</item>
+        <item>C++</item>
+    </string-array>
+</resources>

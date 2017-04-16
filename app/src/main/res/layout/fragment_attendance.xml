@@ -1,0 +1,66 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="130dp"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    tools:context="com.zaid.attendance.Attendance">
+
+    <!-- TODO: Update blank fragment layout -->
+ <!--  <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Attendance"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textStyle="bold"/>-->
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Class" />
+   <Spinner
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:entries="@array/spinnerStream"
+       android:layout_marginTop="20dp"
+       android:id="@+id/stream">
+
+    </Spinner>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Subject"
+        android:layout_marginTop="50dp"/>
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/spinnerSub"
+        android:layout_marginTop="70dp"
+        android:id="@+id/subject"
+        >
+
+    </Spinner>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:layout_marginTop="100dp"/>
+    <Button
+        android:id="@+id/DateButton"
+        style="@android:style/Widget.Material.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:text="Select Date"
+        android:drawableLeft="@android:drawable/ic_menu_my_calendar"/>
+    <Button
+        android:id="@+id/attendanceSubmit"
+        style="@android:style/Widget.Material.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:text="Submit"
+        android:layout_gravity="right"
+        />
+</FrameLayout>
