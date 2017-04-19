@@ -15,13 +15,16 @@ import java.util.ArrayList;
 
 public class myadapter extends RecyclerView.Adapter<myadapter.MyViewHolder> {
 
-    private final Context context;
+    private Context context = null;
     private final ArrayList<student_list> stdlist;
 
-    myadapter(Context context, ArrayList<student_list> stdlist){
+    myadapter(ArrayList<student_list> stdlist){
         this.context=context;
         this.stdlist=stdlist;
     }
+
+
+
     @Override
     public myadapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.row_layout,parent,false);
@@ -31,6 +34,7 @@ public class myadapter extends RecyclerView.Adapter<myadapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(myadapter.MyViewHolder holder, int position) {
         student_list std=stdlist.get(position);
+        holder.tvroll.setText(Integer.toString(std.getRollno()));
         holder.tvName.setText(std.getName());
     }
 
@@ -41,9 +45,11 @@ public class myadapter extends RecyclerView.Adapter<myadapter.MyViewHolder> {
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tvName;
+        TextView tvroll;
         public MyViewHolder(View itemView) {
             super(itemView);
             tvName=(TextView)itemView.findViewById(R.id.tvName);
+            tvroll=(TextView)itemView.findViewById(R.id.tvroll);
         }
     }
 }

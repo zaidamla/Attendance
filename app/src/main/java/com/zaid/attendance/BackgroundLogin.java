@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -32,8 +31,8 @@ public class BackgroundLogin extends AsyncTask<String,Void,String> {
     @Override
     protected String doInBackground(String... params) {
         String type = params[0];
-        String login_url = "http://192.168.43.196:80/Attendance/login.php";
-        String insert_url = "http://192.168.43.196:80/Attendance/insert.php";
+        String login_url = "http://192.168.0.102:80/Attendance/login.php";
+        String insert_url = "http://192.168.0.102:80/Attendance/insert.php";
         if(type.equals("login")){
             try {
                 //Toast.makeText(context, "Login..", Toast.LENGTH_SHORT).show();
