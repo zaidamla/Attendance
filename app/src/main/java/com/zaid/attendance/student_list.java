@@ -9,7 +9,7 @@ public class student_list {
     private String Name;
     private boolean present;
 
-    public student_list(int rollno,String name,boolean present)
+    public student_list(int rollno,String name)
     {
         this.setRollno(rollno);
         this.setName(name);

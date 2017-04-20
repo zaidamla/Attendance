@@ -40,7 +40,7 @@ public class backgroundTask extends AsyncTask<Void,student_list,Void> {
         activity=(Activity)ct;
     }
 
-    String json_string="http://192.168.0.100:80/Attendance/select.php";
+    String json_string="http://10.0.2.2:80/Attendance/select.php";
 
     @Override
     protected void onPreExecute() {
@@ -51,13 +51,12 @@ public class backgroundTask extends AsyncTask<Void,student_list,Void> {
         recyclerView.setHasFixedSize(true);
         adapter=new myadapter(arrayList);
         recyclerView.setAdapter(adapter);
-        ProgressDialog progressDialog=new ProgressDialog(ct);
+        progressDialog=new ProgressDialog(ct);
         progressDialog.setTitle("Please Wait.");
         progressDialog.setMessage("loading..");
         progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
         progressDialog.show();
-
     }
     @Override
     protected Void doInBackground(Void... params) {
@@ -82,7 +81,7 @@ public class backgroundTask extends AsyncTask<Void,student_list,Void> {
             {
                 JSONObject jO=jsonArray.getJSONObject(count);
                 count++;
-                student_list student_list=new student_list(jO.getInt("rollno"),jO.getString("name"),jO.getBoolean("present"));
+                student_list student_list=new student_list(jO.getInt("rollno"),jO.getString("Name"));
                 publishProgress(student_list);
                 Thread.sleep(1000);
             }
@@ -107,7 +106,6 @@ public class backgroundTask extends AsyncTask<Void,student_list,Void> {
     protected void onProgressUpdate(student_list... values) {
         arrayList.add(values[0]);
         adapter.notifyDataSetChanged();
-
     }
 
     @Override

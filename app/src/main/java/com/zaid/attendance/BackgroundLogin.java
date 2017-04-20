@@ -31,7 +31,7 @@ public class BackgroundLogin extends AsyncTask<String,Void,String> {
     @Override
     protected String doInBackground(String... params) {
         String type = params[0];
-        String login_url = "http://192.168.0.100:80/Attendance/login.php";
+        String login_url = "http://10.0.2.2:80/Attendance/login.php";
         String insert_url = "http://192.168.0.100:80/Attendance/insert.php";
         if(type.equals("login")){
             try {
