@@ -3,9 +3,13 @@ package com.zaid.attendance;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 public class ListActivity extends AppCompatActivity {
-
+    Toolbar toolbar;
     RecyclerView recyclerView;
     //ArrayList<student_list> stdlist;
 
@@ -14,27 +18,25 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         recyclerView=(RecyclerView)findViewById(R.id.rv);
+        toolbar=(Toolbar)findViewById(R.id.toolBar);
 
-       // dummydata();
+        //setSupportActionBar(toolbar);
         backgroundTask backgroundTask=new backgroundTask(ListActivity.this);
         backgroundTask.execute();
-
-//        myadapter adapter=new myadapter(this,stdlist);
-//
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        recyclerView.setAdapter(adapter);
     }
 
-//    private void dummydata() {
-//        stdlist=new ArrayList<>();
-//        for(int i=0;i<10;i++){
-//            student_list std = new student_list();
-//            std.setRollno(i+1);
-//            std.setName("Name "+(i+1));
-//            stdlist.add(std);
-//
-//        }
-//        backgroundTask backgroundTask=new backgroundTask();
-//        backgroundTask.execute();
-//    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id=item.getItemId();
+        if(id==R.id.submit){
+            Toast.makeText(this, "submit", Toast.LENGTH_SHORT).show();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
