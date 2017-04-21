@@ -27,6 +27,7 @@ public class Attendance extends Fragment {
     public Attendance() {
         // Required empty public constructor
     }
+    String stream_select;
 Spinner subject,stream;
     Button DateButton,Submit;
     DatePickerDialog datePickerDialog;
@@ -67,8 +68,17 @@ Spinner subject,stream;
             @Override
             public void onClick(View v) {
                 Toast.makeText(getContext(), "submit", Toast.LENGTH_SHORT).show();
+//                backgroundTask backgroundTask=new backgroundTask(getContext());
+//                backgroundTask.execute();
                 Intent i=new Intent(getContext(),ListActivity.class);
                 getContext().startActivity(i);
+                stream_select=stream.getSelectedItem().toString();
+                String type="class";
+                BackgroundSelect backgroundSelect=new BackgroundSelect(getContext());
+                backgroundSelect.execute(type,stream_select);
+
+
+
             }
         });
 

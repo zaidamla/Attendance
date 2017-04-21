@@ -40,7 +40,7 @@ public class backgroundTask extends AsyncTask<Void,student_list,Void> {
         activity=(Activity)ct;
     }
 
-    String json_string="http://10.0.2.2:80/Attendance/select.php";
+    String json_string="http://192.168.0.102:80/Attendance/select.php";
 
     @Override
     protected void onPreExecute() {
@@ -81,7 +81,7 @@ public class backgroundTask extends AsyncTask<Void,student_list,Void> {
             {
                 JSONObject jO=jsonArray.getJSONObject(count);
                 count++;
-                student_list student_list=new student_list(jO.getInt("rollno"),jO.getString("Name"));
+                student_list student_list=new student_list(jO.getInt("Rollno"),jO.getString("Name"));
                 publishProgress(student_list);
                 Thread.sleep(1000);
             }

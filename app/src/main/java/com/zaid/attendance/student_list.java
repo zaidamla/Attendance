@@ -7,13 +7,13 @@ package com.zaid.attendance;
 public class student_list {
     private int rollno;
     private String Name;
-    private boolean present;
+   // private boolean present;
 
     public student_list(int rollno,String name)
     {
         this.setRollno(rollno);
         this.setName(name);
-        this.setPresent(present);
+        //this.setPresent(present);
     }
 
     public int getRollno() {
@@ -32,11 +32,11 @@ public class student_list {
         Name = name;
     }
 
-    public boolean isPresent() {
-        return present;
-    }
-
-    public void setPresent(boolean present) {
-        this.present = present;
-    }
+//    public boolean isPresent() {
+//        return present;
+//    }
+//
+//    public void setPresent(boolean present) {
+//        this.present = present;
+//    }
 }

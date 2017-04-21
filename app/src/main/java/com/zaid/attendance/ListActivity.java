@@ -4,12 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 
-import java.util.ArrayList;
-
 public class ListActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    ArrayList<student_list> stdlist;
+    //ArrayList<student_list> stdlist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
