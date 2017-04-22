@@ -70,12 +70,16 @@ Spinner subject,stream;
                 Toast.makeText(getContext(), "submit", Toast.LENGTH_SHORT).show();
 //                backgroundTask backgroundTask=new backgroundTask(getContext());
 //                backgroundTask.execute();
-                Intent i=new Intent(getContext(),ListActivity.class);
-                getContext().startActivity(i);
                 stream_select=stream.getSelectedItem().toString();
+
+                Intent i=new Intent(getContext(),ListActivity.class);
+                i.putExtra("stream",stream_select);
+                i.putExtra("subj", subject.getSelectedItem().toString());
+                i.putExtra("date",DateButton.getText());
+                getContext().startActivity(i);
                 String type="class";
-                BackgroundSelect backgroundSelect=new BackgroundSelect(getContext());
-                backgroundSelect.execute(type,stream_select);
+//              Toast.makeText(getContext(), stream_select, Toast.LENGTH_SHORT).show();
+
 
 
 

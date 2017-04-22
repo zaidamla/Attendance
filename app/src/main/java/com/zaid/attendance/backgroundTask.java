@@ -25,7 +25,7 @@ import java.util.ArrayList;
  * Created by Vaibhav on 4/18/2017.
  */
 
-public class backgroundTask extends AsyncTask<Void,student_list,Void> {
+public class backgroundTask extends AsyncTask<String,student_list,Void> {
     Context ct;
     Activity activity;
     RecyclerView recyclerView;
@@ -40,7 +40,7 @@ public class backgroundTask extends AsyncTask<Void,student_list,Void> {
         activity=(Activity)ct;
     }
 
-    String json_string="http://192.168.0.102:80/Attendance/select.php";
+    String json_string="http://192.168.43.90:80/Attendance/select.php";
 
     @Override
     protected void onPreExecute() {
@@ -59,9 +59,10 @@ public class backgroundTask extends AsyncTask<Void,student_list,Void> {
         progressDialog.show();
     }
     @Override
-    protected Void doInBackground(Void... params) {
+    protected Void doInBackground(String... params) {
         try {
-            URL url= new URL(json_string);
+            URL url= new URL(json_string+"?stream="+params[0]);
+            Log.v("url",url.toString());
             HttpURLConnection httpURLConnection= (HttpURLConnection) url.openConnection();
             InputStream inputStream=httpURLConnection.getInputStream();
             BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(inputStream));

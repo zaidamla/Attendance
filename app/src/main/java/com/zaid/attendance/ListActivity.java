@@ -11,6 +11,9 @@ import android.widget.Toast;
 public class ListActivity extends AppCompatActivity {
     Toolbar toolbar;
     RecyclerView recyclerView;
+    private String stream;
+    private String subj;
+    private String date;
     //ArrayList<student_list> stdlist;
 
     @Override
@@ -20,9 +23,21 @@ public class ListActivity extends AppCompatActivity {
         recyclerView=(RecyclerView)findViewById(R.id.rv);
         toolbar=(Toolbar)findViewById(R.id.toolBar);
 
+        Bundle bundle=getIntent().getExtras();
+        if(!bundle.getString("stream").isEmpty())
+           stream=bundle.getString("stream");
+
+        if(!bundle.getString("subj").isEmpty())
+            subj=bundle.getString("subj");
+
+        if(!bundle.getString("date").isEmpty())
+            date=bundle.getString("date");
+
+
+        //Toast.makeText(this,"List "+ stream, Toast.LENGTH_SHORT).show();
         //setSupportActionBar(toolbar);
         backgroundTask backgroundTask=new backgroundTask(ListActivity.this);
-        backgroundTask.execute();
+        backgroundTask.execute(stream);
     }
 
     @Override
