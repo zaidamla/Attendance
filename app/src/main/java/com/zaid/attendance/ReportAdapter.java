@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 
 public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.RecyclerViewHolder>{
+    private static final
     ArrayList<report_list> arrayList = new ArrayList<>();
     public  ReportAdapter(ArrayList<report_list> arrayList)
     {
@@ -29,8 +30,9 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.RecyclerVi
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
         report_list reportList = arrayList.get(position);
-        holder.rroll.setText(Integer.toString(report_list.getRollno()));
-        holder.Name
+        holder.rollno.setText(Integer.toString(reportList.getRollno()));
+        holder.Name.setText(reportList.getName());
+        holder.Status.setText(reportList.getStatus());
 
     }
 
