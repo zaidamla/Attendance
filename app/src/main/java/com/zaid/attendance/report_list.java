@@ -1,17 +1,19 @@
 package com.zaid.attendance;
 
 /**
- * Created by Najma on 11-04-2017.
+ * Created by Najma on 24-04-2017.
  */
 
-public class student_list {
+public class report_list {
     private int rollno;
     private String Name;
+    private String status;
 
-    public student_list(int rollno,String name)
+    public report_list(int rollno, String name, String status)
     {
         this.setRollno(rollno);
         this.setName(name);
+        this.setStatus(status);
     }
 
     public int getRollno() {
@@ -30,4 +32,11 @@ public class student_list {
         Name = name;
     }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
 }

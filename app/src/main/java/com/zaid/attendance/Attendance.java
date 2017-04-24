@@ -67,9 +67,7 @@ Spinner subject,stream;
         Submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "submit", Toast.LENGTH_SHORT).show();
-//                backgroundTask backgroundTask=new backgroundTask(getContext());
-//                backgroundTask.execute();
+                Toast.makeText(getContext(), "Submit", Toast.LENGTH_SHORT).show();
                 stream_select=stream.getSelectedItem().toString();
 
                 Intent i=new Intent(getContext(),ListActivity.class);
@@ -78,7 +76,7 @@ Spinner subject,stream;
                 i.putExtra("date",DateButton.getText());
                 getContext().startActivity(i);
                 String type="class";
-//              Toast.makeText(getContext(), stream_select, Toast.LENGTH_SHORT).show();
+
 
 
 

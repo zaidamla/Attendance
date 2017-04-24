@@ -14,7 +14,6 @@ public class ListActivity extends AppCompatActivity {
     private String stream;
     private String subj;
     private String date;
-    //ArrayList<student_list> stdlist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +32,6 @@ public class ListActivity extends AppCompatActivity {
         if(!bundle.getString("date").isEmpty())
             date=bundle.getString("date");
 
-
-        //Toast.makeText(this,"List "+ stream, Toast.LENGTH_SHORT).show();
-        //setSupportActionBar(toolbar);
         backgroundTask backgroundTask=new backgroundTask(ListActivity.this);
         backgroundTask.execute(stream);
     }

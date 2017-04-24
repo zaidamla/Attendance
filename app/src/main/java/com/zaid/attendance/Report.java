@@ -2,6 +2,7 @@ package com.zaid.attendance;
 
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -25,6 +27,7 @@ public class Report extends Fragment {
     public Report() {
         // Required empty public constructor
     }
+    String stream_select;
     Spinner subject,stream;
     Button DateButton,Submit;
     DatePickerDialog datePickerDialog;
@@ -59,9 +62,19 @@ public class Report extends Fragment {
                 datePickerDialog.show();
             }
         });
+        /*Submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Submit", Toast.LENGTH_SHORT).show();
+                stream_select=stream.getSelectedItem().toString();
+
+                Intent i=new Intent(getContext(),ReportActivity.class);
+                getContext().startActivity(i);
+                String type="class";
+            }
+        });*/
 
         return view;
     }
-
 
 }
