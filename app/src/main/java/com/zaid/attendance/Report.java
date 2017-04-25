@@ -2,6 +2,7 @@ package com.zaid.attendance;
 
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -26,7 +27,7 @@ public class Report extends Fragment {
         // Required empty public constructor
     }
     Spinner subject,stream;
-    Button DateButton,Submit;
+    Button DateButton,submitReport;
     DatePickerDialog datePickerDialog;
 
     @Override
@@ -37,7 +38,7 @@ public class Report extends Fragment {
         stream=(Spinner)view.findViewById(R.id.stream);
         subject=(Spinner)view.findViewById(R.id.subject);
         DateButton=(Button)view.findViewById(R.id.DateButton);
-        Submit=(Button)view.findViewById(R.id.Submit);
+        submitReport=(Button)view.findViewById(R.id.SubmitReport);
 
         final Calendar myCalendar=Calendar.getInstance();
 
@@ -57,6 +58,20 @@ public class Report extends Fragment {
                 }, mYear,mMonth,mDay);
                 datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
                 datePickerDialog.show();
+            }
+        });
+//        Submit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                 //startActivity(new Intent(getContext(),ReportList.class));
+//                Intent intent = new Intent(getContext(),ReportList.class);
+//                startActivity(intent);
+//            }
+//        });
+        submitReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(),ReportList.class));
             }
         });
 

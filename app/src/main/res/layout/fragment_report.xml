@@ -53,7 +53,7 @@
         android:text="Select Date"
         android:drawableLeft="@android:drawable/ic_menu_my_calendar"/>
     <Button
-        android:id="@+id/Submit"
+        android:id="@+id/SubmitReport"
         style="@android:style/Widget.Material.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
