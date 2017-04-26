@@ -78,7 +78,7 @@ Spinner subject,stream;
                 i.putExtra("date",DateButton.getText());
                 getContext().startActivity(i);
                 String type="class";
-//              Toast.makeText(getContext(), stream_select, Toast.LENGTH_SHORT).show();
+             Toast.makeText(getContext(), stream_select, Toast.LENGTH_SHORT).show();
 
 
 
