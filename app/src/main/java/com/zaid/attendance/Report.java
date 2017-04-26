@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -34,9 +35,9 @@ public class Report extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.fragment_attendance, container, false);
-        stream=(Spinner)view.findViewById(R.id.stream);
-        subject=(Spinner)view.findViewById(R.id.subject);
+        View view=inflater.inflate(R.layout.fragment_report, container, false);
+        stream=(Spinner)view.findViewById(R.id.stream_report);
+        subject=(Spinner)view.findViewById(R.id.snipper);
         DateButton=(Button)view.findViewById(R.id.DateButton);
         submitReport=(Button)view.findViewById(R.id.SubmitReport);
 
@@ -53,28 +54,25 @@ public class Report extends Fragment {
                 datePickerDialog= new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        DateButton.setText(dayOfMonth + "/" + (month+1) + "/" + year);
+                        DateButton.setText((month+1) + "/" + dayOfMonth + "/" + year);
                     }
                 }, mYear,mMonth,mDay);
                 datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
                 datePickerDialog.show();
             }
         });
-//        Submit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                 //startActivity(new Intent(getContext(),ReportList.class));
-//                Intent intent = new Intent(getContext(),ReportList.class);
-//                startActivity(intent);
-//            }
-//        });
+
+
         submitReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(),ReportList.class));
+                Toast.makeText(getContext(), "submit", Toast.LENGTH_SHORT).show();
+                Intent i=new Intent(getContext(),ReportList.class);
+                i.putExtra("subject", subject.getSelectedItem().toString());
+                i.putExtra("date",DateButton.getText());
+                getContext().startActivity(i);
             }
         });
-
         return view;
     }
 
