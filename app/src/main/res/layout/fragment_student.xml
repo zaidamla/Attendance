@@ -97,7 +97,7 @@
         android:id="@+id/streamstudent"
         android:layout_marginTop="10dp"></Spinner>
     <Button
-        android:id="@+id/submit"
+        android:id="@+id/submitStudent"
         style="@android:style/Widget.Material.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

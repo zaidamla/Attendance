@@ -29,7 +29,7 @@ public class Attendance extends Fragment {
     }
     String stream_select;
 Spinner subject,stream;
-    Button DateButton,Submit;
+    Button DateButton,SubmitAttendance;
     DatePickerDialog datePickerDialog;
 
     @Override
@@ -40,7 +40,7 @@ Spinner subject,stream;
         stream=(Spinner)view.findViewById(R.id.stream);
         subject=(Spinner)view.findViewById(R.id.subject);
         DateButton=(Button)view.findViewById(R.id.DateButton);
-        Submit=(Button)view.findViewById(R.id.attendanceSubmit);
+        SubmitAttendance=(Button)view.findViewById(R.id.attendanceSubmit);
 
         final Calendar myCalendar=Calendar.getInstance();
 
@@ -55,7 +55,7 @@ Spinner subject,stream;
                 datePickerDialog= new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        DateButton.setText(dayOfMonth + "/" + (month+1) + "/" + year);
+                        DateButton.setText((month+1) + "/" + dayOfMonth + "/" + year);
                     }
                 }, mYear,mMonth,mDay);
                 datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
@@ -64,10 +64,12 @@ Spinner subject,stream;
             }
         });
 
-        Submit.setOnClickListener(new View.OnClickListener() {
+        SubmitAttendance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Submit", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "submit", Toast.LENGTH_SHORT).show();
+//                backgroundTask backgroundTask=new backgroundTask(getContext());
+//                backgroundTask.execute();
                 stream_select=stream.getSelectedItem().toString();
 
                 Intent i=new Intent(getContext(),ListActivity.class);
@@ -76,7 +78,7 @@ Spinner subject,stream;
                 i.putExtra("date",DateButton.getText());
                 getContext().startActivity(i);
                 String type="class";
-
+             Toast.makeText(getContext(), stream_select, Toast.LENGTH_SHORT).show();
 
 
 

@@ -22,73 +22,80 @@ import java.net.URL;
 import java.util.ArrayList;
 
 /**
- * Created by Vaibhav on 4/18/2017.
+ * Created by Vaibhav on 4/25/2017.
  */
 
-public class backgroundTask extends AsyncTask<String,student_list,Void> {
-    Context ct;
+public class BackgroundReport extends AsyncTask<String,ReportGetSet,Void> {
+    Context c;
     Activity activity;
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager layoutManager;
     ProgressDialog progressDialog;
-    ArrayList<student_list> arrayList=new ArrayList<>();
+    ArrayList<ReportGetSet> arrayList=new ArrayList<>();
 
-    public backgroundTask(Context ct)
+    public BackgroundReport(Context c)
     {
-        this.ct=ct;
-        activity=(Activity)ct;
+        this.c=c;
+        activity=(Activity)c;
     }
 
-    String json_string="https://zaidamla96.000webhostapp.com/android/select.php";
+    String json="https://zaidamla96.000webhostapp.com/android/report.php";
+   // String json="http://192.168.1.5:80/Attendance/report.php";
 
     @Override
     protected void onPreExecute() {
 
-        recyclerView=(RecyclerView)activity.findViewById(R.id.rv);
-        layoutManager= new LinearLayoutManager(ct);
+        recyclerView=(RecyclerView)activity.findViewById(R.id.recyclerview);
+        layoutManager=new LinearLayoutManager(c);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-        adapter=new myadapter(arrayList);
+        adapter=new adapterReport(arrayList);
         recyclerView.setAdapter(adapter);
-        progressDialog=new ProgressDialog(ct);
+        progressDialog=new ProgressDialog(c);
         progressDialog.setTitle("Please Wait.");
         progressDialog.setMessage("loading..");
         progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
         progressDialog.show();
+
+
     }
+
     @Override
     protected Void doInBackground(String... params) {
         try {
-            URL url= new URL(json_string+"?stream="+params[0]);
+
+            URL url= new URL(json+"?subject="+params[0]+"&date="+params[1]);
             Log.v("url",url.toString());
             HttpURLConnection httpURLConnection= (HttpURLConnection) url.openConnection();
             InputStream inputStream=httpURLConnection.getInputStream();
-            BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(inputStream));
+            BufferedReader bufferedReader=new BufferedReader(new InputStreamReader((inputStream)));
             StringBuilder stringBuilder=new StringBuilder();
             String line;
-
             while((line=bufferedReader.readLine())!=null)
             {
                 stringBuilder.append(line+"\n");
             }
             httpURLConnection.disconnect();
-            json_string=stringBuilder.toString().trim();
+            String json_string=stringBuilder.toString().trim();
+            Log.v("jsonstring",json_string);
             JSONObject jsonObject=new JSONObject(json_string);
             JSONArray jsonArray=jsonObject.getJSONArray("server_response");
             int count=0;
-            while (count<jsonArray.length())
+            while(count<jsonArray.length())
             {
-                JSONObject jO=jsonArray.getJSONObject(count);
+                JSONObject jo=jsonArray.getJSONObject(count);
                 count++;
-                student_list student_list=new student_list(jO.getInt("Rollno"),jO.getString("Name"));
-                publishProgress(student_list);
+                ReportGetSet reportGetSet=new ReportGetSet(jo.getInt("Rollno"),jo.getString("Date"),jo.getString("Status"));
+                publishProgress(reportGetSet);
                 Thread.sleep(1000);
             }
 
 
-            Log.d("JSON_STRING",json_string);
+
+
+
 
 
         } catch (MalformedURLException e) {
@@ -105,14 +112,15 @@ public class backgroundTask extends AsyncTask<String,student_list,Void> {
     }
 
     @Override
-    protected void onProgressUpdate(student_list... values) {
+    protected void onProgressUpdate(ReportGetSet... values) {
+        super.onProgressUpdate(values);
         arrayList.add(values[0]);
         adapter.notifyDataSetChanged();
     }
 
     @Override
     protected void onPostExecute(Void aVoid) {
-       progressDialog.dismiss();
+        progressDialog.dismiss();
     }
 
 

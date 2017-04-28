@@ -15,7 +15,7 @@ import android.widget.Spinner;
  */
 public class Student extends Fragment {
     EditText rollno,eno,name, contact, parent;
-    Button submit;
+    Button submitStudent;
     Spinner streamstudent;
     String str_rollno, str_eno, str_name, str_contact, str_parent;
 
@@ -34,15 +34,16 @@ public class Student extends Fragment {
         name=(EditText)view.findViewById(R.id.name);
         contact=(EditText)view.findViewById(R.id.contact);
         parent=(EditText)view.findViewById(R.id.parent);
-        submit=(Button) view.findViewById(R.id.submit);
+        submitStudent=(Button) view.findViewById(R.id.submitStudent);
         streamstudent=(Spinner) view.findViewById(R.id.streamstudent);
 
-        submit.setOnClickListener(new View.OnClickListener(){
+        submitStudent.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 OnReg();
             }
         });
+
         return view;
     }
     public void OnReg(){

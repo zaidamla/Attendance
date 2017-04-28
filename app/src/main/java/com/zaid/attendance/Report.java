@@ -29,18 +29,18 @@ public class Report extends Fragment {
     }
     String stream_select;
     Spinner subject,stream;
-    Button DateButton,Submit;
+    Button DateButton,submitReport;
     DatePickerDialog datePickerDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.fragment_attendance, container, false);
-        stream=(Spinner)view.findViewById(R.id.stream);
-        subject=(Spinner)view.findViewById(R.id.subject);
+        View view=inflater.inflate(R.layout.fragment_report, container, false);
+        stream=(Spinner)view.findViewById(R.id.stream_report);
+        subject=(Spinner)view.findViewById(R.id.snipper);
         DateButton=(Button)view.findViewById(R.id.DateButton);
-        Submit=(Button)view.findViewById(R.id.Submit);
+        submitReport=(Button)view.findViewById(R.id.SubmitReport);
 
         final Calendar myCalendar=Calendar.getInstance();
 
@@ -55,7 +55,7 @@ public class Report extends Fragment {
                 datePickerDialog= new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        DateButton.setText(dayOfMonth + "/" + (month+1) + "/" + year);
+                        DateButton.setText((month+1) + "/" + dayOfMonth + "/" + year);
                     }
                 }, mYear,mMonth,mDay);
                 datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
@@ -74,6 +74,17 @@ public class Report extends Fragment {
             }
         });*/
 
+
+        submitReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(getContext(), "submit", Toast.LENGTH_SHORT).show();
+                Intent i=new Intent(getContext(),ReportList.class);
+                i.putExtra("subject", subject.getSelectedItem().toString());
+                i.putExtra("date",DateButton.getText());
+                getContext().startActivity(i);
+            }
+        });
         return view;
     }
 
