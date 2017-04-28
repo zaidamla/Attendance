@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -66,7 +65,7 @@ public class Report extends Fragment {
         submitReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "submit", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "submit", Toast.LENGTH_SHORT).show();
                 Intent i=new Intent(getContext(),ReportList.class);
                 i.putExtra("subject", subject.getSelectedItem().toString());
                 i.putExtra("date",DateButton.getText());
