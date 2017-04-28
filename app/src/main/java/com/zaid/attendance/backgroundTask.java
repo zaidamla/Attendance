@@ -40,7 +40,7 @@ public class backgroundTask extends AsyncTask<String,student_list,Void> {
         activity=(Activity)ct;
     }
 
-    String json_string="http://192.168.0.102:80/Attendance/select.php";
+    String json_string="https://zaidamla96.000webhostapp.com/android/select.php";
 
     @Override
     protected void onPreExecute() {
