@@ -7,14 +7,18 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 
@@ -28,7 +32,7 @@ public class Attendance extends Fragment {
         // Required empty public constructor
     }
     String stream_select;
-Spinner subject,stream;
+    Spinner subject,stream;
     Button DateButton,SubmitAttendance;
     DatePickerDialog datePickerDialog;
 
@@ -43,6 +47,41 @@ Spinner subject,stream;
         SubmitAttendance=(Button)view.findViewById(R.id.attendanceSubmit);
 
         final Calendar myCalendar=Calendar.getInstance();
+
+        stream.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String spinnerValue = stream.getSelectedItem().toString();
+                switch (spinnerValue) {
+                    case "FYBCA": {
+                        ArrayAdapter<CharSequence> adapter = ArrayAdapter
+                                .createFromResource(getContext(), R.array.fybca,
+                                        android.R.layout.simple_spinner_dropdown_item);
+                        subject.setAdapter(adapter);
+                        break;
+                    }
+                    case "SYBCA": {
+                        ArrayAdapter<CharSequence> adapter = ArrayAdapter
+                                .createFromResource(getContext(), R.array.sybca,
+                                        android.R.layout.simple_spinner_dropdown_item);
+                        subject.setAdapter(adapter);
+                        break;
+                    }
+                    case "TYBCA": {
+                        ArrayAdapter<CharSequence> adapter = ArrayAdapter
+                                .createFromResource(getContext(), R.array.tybca,
+                                        android.R.layout.simple_spinner_dropdown_item);
+                        subject.setAdapter(adapter);
+                        break;
+                    }
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         DateButton.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
@@ -72,6 +111,7 @@ Spinner subject,stream;
 //                backgroundTask.execute();
                 stream_select=stream.getSelectedItem().toString();
 
+                Log.v("info",stream_select + subject.getSelectedItem().toString()+DateButton.getText());
                 Intent i=new Intent(getContext(),ListActivity.class);
                 i.putExtra("stream",stream_select);
                 i.putExtra("subj", subject.getSelectedItem().toString());

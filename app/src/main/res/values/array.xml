@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="spinnerStream">
-        <item id="fybca">FY-BCA</item>
-        <item id="sybca">SY-BCA</item>
-        <item id="tybca">TY-BCA</item>
+        <item id="fybca">FYBCA</item>
+        <item id="sybca">SYBCA</item>
+        <item id="tybca">TYBCA</item>
     </string-array>
-    <string-array name="spinnerSub">
+    <string-array name="fybca">
         <item>CPPM</item>
-        <item>JAVA</item>
-        <item>C++</item>
+        <item>Maths</item>
+        <item>IC</item>
+        <item>OAT</item>
+        <item>OB</item>
+    </string-array>
+    <string-array name="sybca">
+    <item>SE</item>
+    <item>RDBMS</item>
+    <item>DS</item>
+    <item>STATS</item>
+    </string-array>
+    <string-array name="tybca">
+        <item>PHP</item>
+        <item>OS2</item>
+        <item>ASP.NET</item>
+        <item>UNIX</item>
     </string-array>
 </resources>
