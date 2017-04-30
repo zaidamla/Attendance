@@ -106,7 +106,9 @@ public class backgroundTask extends AsyncTask<String,student_list,Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
 
+        Log.v("Array","kgj");
        progressDialog.dismiss();
+        Log.v("array", arrayList.get(0).getName());
     }
 
 }
