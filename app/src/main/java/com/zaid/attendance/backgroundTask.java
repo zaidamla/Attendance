@@ -17,7 +17,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -91,13 +90,7 @@ public class backgroundTask extends AsyncTask<String,student_list,Void> {
             Log.d("JSON_STRING",json_string);
 
 
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
+        } catch (IOException | JSONException | InterruptedException e) {
             e.printStackTrace();
         }
 
@@ -112,8 +105,8 @@ public class backgroundTask extends AsyncTask<String,student_list,Void> {
 
     @Override
     protected void onPostExecute(Void aVoid) {
+
        progressDialog.dismiss();
     }
-
 
 }
