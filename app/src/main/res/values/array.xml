@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="spinnerStream">
-        <item id="fybca">FYBCA</item>
-        <item id="sybca">SYBCA</item>
-        <item id="tybca">TYBCA</item>
+        <item id="fybca">FY-BCA</item>
+        <item id="sybca">SY-BCA</item>
+        <item id="tybca">TY-BCA</item>
     </string-array>
     <string-array name="fybca">
         <item>CPPM</item>

@@ -81,18 +81,18 @@ public class Report extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String spinnerValue = stream.getSelectedItem().toString();
-                if (spinnerValue.equals("FYBCA")) {
+                if (spinnerValue.equals("FY-BCA")) {
                     ArrayAdapter<CharSequence> adapter =  ArrayAdapter
                             .createFromResource(getContext(), R.array.fybca,
                                     android.R.layout.simple_spinner_dropdown_item);
                     subject.setAdapter(adapter);
-                }else if (spinnerValue.equals("SYBCA")) {
+                }else if (spinnerValue.equals("SY-BCA")) {
                     ArrayAdapter<CharSequence> adapter = ArrayAdapter
                             .createFromResource(getContext(), R.array.sybca,
                                     android.R.layout.simple_spinner_dropdown_item);
                     subject.setAdapter(adapter);
                 }
-                else if (spinnerValue.equals("TYBCA")) {
+                else if (spinnerValue.equals("TY-BCA")) {
                     ArrayAdapter<CharSequence> adapter = ArrayAdapter
                             .createFromResource(getContext(), R.array.tybca,
                                     android.R.layout.simple_spinner_dropdown_item);

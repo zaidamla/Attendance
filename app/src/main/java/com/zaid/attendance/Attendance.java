@@ -53,21 +53,21 @@ public class Attendance extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String spinnerValue = stream.getSelectedItem().toString();
                 switch (spinnerValue) {
-                    case "FYBCA": {
+                    case "FY-BCA": {
                         ArrayAdapter<CharSequence> adapter = ArrayAdapter
                                 .createFromResource(getContext(), R.array.fybca,
                                         android.R.layout.simple_spinner_dropdown_item);
                         subject.setAdapter(adapter);
                         break;
                     }
-                    case "SYBCA": {
+                    case "SY-BCA": {
                         ArrayAdapter<CharSequence> adapter = ArrayAdapter
                                 .createFromResource(getContext(), R.array.sybca,
                                         android.R.layout.simple_spinner_dropdown_item);
                         subject.setAdapter(adapter);
                         break;
                     }
-                    case "TYBCA": {
+                    case "TY-BCA": {
                         ArrayAdapter<CharSequence> adapter = ArrayAdapter
                                 .createFromResource(getContext(), R.array.tybca,
                                         android.R.layout.simple_spinner_dropdown_item);

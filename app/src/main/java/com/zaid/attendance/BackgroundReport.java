@@ -41,7 +41,7 @@ public class BackgroundReport extends AsyncTask<String,ReportGetSet,Void> {
     }
 
     //String json="https://zaidamla96.000webhostapp.com/android/report.php";
-    String json="https://192.168.0.25:80/Attendance/report.php";
+    String json="http://192.168.0.8:80/Attendance/report.php";
    // String json="http://192.168.1.5:80/Attendance/report.php";
 
     @Override

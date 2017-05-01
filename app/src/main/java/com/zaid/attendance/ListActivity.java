@@ -12,6 +12,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.widget.Button;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -28,6 +30,7 @@ import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity {
     Toolbar toolbar;
+    Button button;
     RecyclerView recyclerView;
     private String stream;
     private String subj;
@@ -39,6 +42,7 @@ public class ListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+       /* button=(Button)findViewById(R.id.sub);*/
         recyclerView=(RecyclerView)findViewById(R.id.rv);
         arrayList=new ArrayList<>();
         Bundle bundle=getIntent().getExtras();
@@ -57,6 +61,7 @@ public class ListActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getBaseContext());
         recyclerView.setLayoutManager(layoutManager);
 
+
         toolbar=(Toolbar)findViewById(R.id.toolBar);
 
     }
@@ -73,9 +78,8 @@ public class ListActivity extends AppCompatActivity {
         if(id==R.id.submit){
             for(int i=0;i<arrayList.size();i++){
                 BackgroundAttendance backgroundAttendance=new BackgroundAttendance(this);
-                backgroundAttendance.execute(subj,String.valueOf(arrayList.get(i).getRollno()),date,arrayList.get(0).getStatus());
+                backgroundAttendance.execute(subj,String.valueOf(arrayList.get(i).getRollno()),date,arrayList.get(i).getStatus());
             }
-            Log.v("present",arrayList.get(0).getStatus());
             Toast.makeText(this, "submit", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
@@ -92,7 +96,7 @@ public class ListActivity extends AppCompatActivity {
             activity=(Activity)ct;
         }
 
-        String json_string="https://192.168.0.25:80/Attendance/select.php";
+        String json_string="http://192.168.0.8:80/Attendance/select.php";
 
         @Override
         protected void onPreExecute() {
@@ -157,13 +161,9 @@ public class ListActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Void aVoid) {
-
-            adapter=new myadapter(arrayList);
+            adapter=new myadapter(arrayList,ct);
             recyclerView.setAdapter(adapter);
-            Log.v("Array","kgj");
             progressDialog.dismiss();
-            Log.v("array", arrayList.get(0).getName());
-
         }
 
     }
