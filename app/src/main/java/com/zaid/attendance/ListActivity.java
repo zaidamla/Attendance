@@ -71,7 +71,10 @@ public class ListActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id=item.getItemId();
         if(id==R.id.submit){
-
+            for(int i=0;i<arrayList.size();i++){
+                BackgroundAttendance backgroundAttendance=new BackgroundAttendance(this);
+                backgroundAttendance.execute(subj,String.valueOf(arrayList.get(i).getRollno()),date,arrayList.get(0).getStatus());
+            }
             Log.v("present",arrayList.get(0).getStatus());
             Toast.makeText(this, "submit", Toast.LENGTH_SHORT).show();
         }
@@ -89,7 +92,7 @@ public class ListActivity extends AppCompatActivity {
             activity=(Activity)ct;
         }
 
-        String json_string="https://zaidamla96.000webhostapp.com/android/select.php";
+        String json_string="https://192.168.0.25:80/Attendance/select.php";
 
         @Override
         protected void onPreExecute() {
