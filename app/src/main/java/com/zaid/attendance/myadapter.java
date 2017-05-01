@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -19,7 +21,6 @@ public class myadapter extends RecyclerView.Adapter<myadapter.MyViewHolder> {
     private final ArrayList<student_list> stdlist;
 
     myadapter(ArrayList<student_list> stdlist){
-        this.context=context;
         this.stdlist=stdlist;
     }
 
@@ -32,10 +33,18 @@ public class myadapter extends RecyclerView.Adapter<myadapter.MyViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(myadapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(final myadapter.MyViewHolder holder, final int position) {
         student_list std=stdlist.get(position);
         holder.tvroll.setText(Integer.toString(std.getRollno()));
         holder.tvName.setText(std.getName());
+        stdlist.get(position).setStatus((holder.cb.isChecked()) ? "Present" : "Absent");
+        holder.cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                stdlist.get(position).setStatus((holder.cb.isChecked()) ? "Present" : "Absent");
+            }
+        });
+
     }
 
     @Override
@@ -46,10 +55,13 @@ public class myadapter extends RecyclerView.Adapter<myadapter.MyViewHolder> {
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tvName;
         TextView tvroll;
+        CheckBox cb;
         public MyViewHolder(View itemView) {
             super(itemView);
             tvName=(TextView)itemView.findViewById(R.id.tvName);
             tvroll=(TextView)itemView.findViewById(R.id.tvroll);
+            cb=(CheckBox)itemView.findViewById(R.id.cb);
+
         }
     }
 }

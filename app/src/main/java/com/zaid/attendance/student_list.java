@@ -9,6 +9,7 @@ import java.io.Serializable;
 public class student_list implements Serializable{
     private int rollno;
     private String Name;
+    private String Status;
 
     public student_list(int rollno,String name)
     {
@@ -32,4 +33,11 @@ public class student_list implements Serializable{
         Name = name;
     }
 
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String status) {
+        Status = status;
+    }
 }

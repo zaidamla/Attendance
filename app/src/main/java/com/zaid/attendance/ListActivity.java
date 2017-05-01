@@ -40,7 +40,7 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         recyclerView=(RecyclerView)findViewById(R.id.rv);
-
+        arrayList=new ArrayList<>();
         Bundle bundle=getIntent().getExtras();
         if(bundle.getString("stream")!=null)
             stream=bundle.getString("stream");
@@ -71,6 +71,8 @@ public class ListActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id=item.getItemId();
         if(id==R.id.submit){
+
+            Log.v("present",arrayList.get(0).getStatus());
             Toast.makeText(this, "submit", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
@@ -148,7 +150,6 @@ public class ListActivity extends AppCompatActivity {
         @Override
         protected void onProgressUpdate(student_list... values) {
             arrayList.add(values[0]);
-            adapter.notifyDataSetChanged();
         }
 
         @Override
