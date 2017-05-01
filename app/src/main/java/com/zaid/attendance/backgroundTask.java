@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
@@ -44,12 +43,12 @@ public class backgroundTask extends AsyncTask<String,student_list,Void> {
     @Override
     protected void onPreExecute() {
 
-        recyclerView=(RecyclerView)activity.findViewById(R.id.rv);
-        layoutManager= new LinearLayoutManager(ct);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
-        adapter=new myadapter(arrayList);
-        recyclerView.setAdapter(adapter);
+//        recyclerView=(RecyclerView)activity.findViewById(R.id.rv);
+//        layoutManager= new LinearLayoutManager(ct);
+//        recyclerView.setLayoutManager(layoutManager);
+//        recyclerView.setHasFixedSize(true);
+//        adapter=new myadapter(arrayList);
+//        recyclerView.setAdapter(adapter);
         progressDialog=new ProgressDialog(ct);
         progressDialog.setTitle("Please Wait.");
         progressDialog.setMessage("loading..");
@@ -107,8 +106,9 @@ public class backgroundTask extends AsyncTask<String,student_list,Void> {
     protected void onPostExecute(Void aVoid) {
 
         Log.v("Array","kgj");
-       progressDialog.dismiss();
+        progressDialog.dismiss();
         Log.v("array", arrayList.get(0).getName());
+
     }
 
 }

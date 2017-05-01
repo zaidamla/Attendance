@@ -1,10 +1,12 @@
 package com.zaid.attendance;
 
+import java.io.Serializable;
+
 /**
  * Created by Najma on 11-04-2017.
  */
 
-public class student_list {
+public class student_list implements Serializable{
     private int rollno;
     private String Name;
 
