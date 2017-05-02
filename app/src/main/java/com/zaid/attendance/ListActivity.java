@@ -12,7 +12,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -96,7 +95,7 @@ public class ListActivity extends AppCompatActivity {
             activity=(Activity)ct;
         }
 
-        String json_string="http://192.168.0.25:80/Attendance/select.php";
+        String json_string="http://192.168.0.22:80/Attendance/select.php";
 
         @Override
         protected void onPreExecute() {

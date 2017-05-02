@@ -6,14 +6,14 @@ package com.zaid.attendance;
 
 public class ReportGetSet {
     private int rollno;
-   // private String name;
+    private String name;
     private String date;
     private String satus;
 
-    public ReportGetSet(int rollno,String date,String status)
+    public ReportGetSet(int rollno,String Name,String date,String status)
     {
         this.setRollno(rollno);
-       //this.setName(name);
+       this.setName(Name);
         this.setDate(date);
         this.setSatus(status);
     }
@@ -26,13 +26,13 @@ public class ReportGetSet {
     public void setRollno(int rollno) {
         this.rollno = rollno;
     }
-//
-//   public String getName() {
-//       return name;
-//    }
-//    public void setName(String name) {
-//        this.name = name;
-//    }
+
+   public String getName() {
+       return name;
+    }
+   public void setName(String name) {
+        this.name = name;
+    }
 
     public String getDate() {
         return date;

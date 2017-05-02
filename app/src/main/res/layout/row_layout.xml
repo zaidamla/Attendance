@@ -6,11 +6,11 @@
 
     <TextView
         android:id="@+id/tvroll"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:textSize="20dp"
         android:text="rollno"
+
         />
 
     <TextView
@@ -20,6 +20,7 @@
         android:layout_weight="1"
         android:textSize="20dp"
         android:text="name"
+        android:gravity="center"
         />
 
     <CheckBox

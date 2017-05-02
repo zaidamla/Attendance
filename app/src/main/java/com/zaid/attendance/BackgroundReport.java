@@ -41,7 +41,7 @@ public class BackgroundReport extends AsyncTask<String,ReportGetSet,Void> {
     }
 
     //String json="https://zaidamla96.000webhostapp.com/android/report.php";
-    String json="http://192.168.0.25:80/Attendance/report.php";
+    String json="http://192.168.0.22:80/Attendance/report.php";
    // String json="http://192.168.1.5:80/Attendance/report.php";
 
     @Override
@@ -67,7 +67,7 @@ public class BackgroundReport extends AsyncTask<String,ReportGetSet,Void> {
     protected Void doInBackground(String... params) {
         try {
 
-            URL url= new URL(json+"?subject="+params[0]+"&date="+params[1]);
+            URL url= new URL(json+"?subject="+params[0]+"&date="+params[1]+"&stream_report="+params[2]);
             Log.v("url",url.toString());
             HttpURLConnection httpURLConnection= (HttpURLConnection) url.openConnection();
             InputStream inputStream=httpURLConnection.getInputStream();
@@ -88,7 +88,7 @@ public class BackgroundReport extends AsyncTask<String,ReportGetSet,Void> {
             {
                 JSONObject jo=jsonArray.getJSONObject(count);
                 count++;
-                ReportGetSet reportGetSet=new ReportGetSet(jo.getInt("Rollno"),jo.getString("Date"),jo.getString("Status"));
+                ReportGetSet reportGetSet=new ReportGetSet(jo.getInt("Rollno"),jo.getString("Name"),jo.getString("Date"),jo.getString("Status"));
                 publishProgress(reportGetSet);
                 Thread.sleep(1000);
             }

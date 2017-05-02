@@ -32,8 +32,8 @@ public class BackgroundLogin extends AsyncTask<String,Void,String> {
     protected String doInBackground(String... params) {
         String type = params[0];
         //String login_url = "https://zaidamla96.000webhostapp.com/android/login.php";
-        String login_url = "http://192.168.0.25:80/Attendance/login.php";
-        String insert_url = "http://192.168.0.25:80/Attendance/insert.php";
+        String login_url = "http://192.168.0.22:80/Attendance/login.php";
+        String insert_url = "http://192.168.0.22:80/Attendance/insert.php";
         //String insert_url = "https://zaidamla96.000webhostapp.com/android/insert.php";
         if(type.equals("login")){
             try {
@@ -129,6 +129,10 @@ public class BackgroundLogin extends AsyncTask<String,Void,String> {
         }
         else if (result.contains("Insert success")){
             Toast.makeText(context, "Student added", Toast.LENGTH_SHORT).show();
+            Intent intent=new Intent(context,MainActivity.class);
+            context.startActivity(intent);
+
+
         }
         else if (result.contains("Insert fail")){
             Toast.makeText(context, "Insert Data", Toast.LENGTH_SHORT).show();
@@ -139,6 +143,7 @@ public class BackgroundLogin extends AsyncTask<String,Void,String> {
         else {
             Toast.makeText(context, "Wrong Username/Password", Toast.LENGTH_SHORT).show();
         }
+
 
     }
 

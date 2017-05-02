@@ -17,7 +17,7 @@ import java.net.URL;
 
 public class ReportBackground extends AsyncTask<Void,Void,Void> {
 
-    String json_string="http://192.168.0.25:80/Attendance/select.php";
+    String json_string="http://192.168.0.22:80/Attendance/select.php";
 
     @Override
     protected void onPreExecute() {

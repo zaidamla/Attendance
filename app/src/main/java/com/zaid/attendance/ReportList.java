@@ -21,19 +21,16 @@ public class ReportList extends AppCompatActivity {
         Bundle bundle=getIntent().getExtras();
 
 
-//        if(!bundle.getString("stream").isEmpty())
-//            stream_report=bundle.getString("stream");
-
-        if(!bundle.getString("subject").isEmpty())
-            subject=bundle.getString("subject");
-
-        if(!bundle.getString("date").isEmpty())
-            date=bundle.getString("date");
+        if(bundle!=null) {
+            stream_report = bundle.getString("stream");
+            subject = bundle.getString("subject");
+            date = bundle.getString("date");
+        }
 
         Toast.makeText(this, date, Toast.LENGTH_SHORT).show();
         Toast.makeText(this, subject, Toast.LENGTH_SHORT).show();
 
         BackgroundReport backgroundReport=new BackgroundReport(ReportList.this);
-        backgroundReport.execute(subject,date);
+        backgroundReport.execute(subject,date,stream_report);
     }
 }

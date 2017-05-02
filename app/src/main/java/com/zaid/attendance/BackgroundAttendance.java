@@ -27,7 +27,7 @@ public class BackgroundAttendance extends AsyncTask<String,Void,String> {
     {
         con=c;
     }
-    String attendance="http://192.168.0.25:80/Attendance/attendance.php";
+    String attendance="http://192.168.0.22:80/Attendance/attendance.php";
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
