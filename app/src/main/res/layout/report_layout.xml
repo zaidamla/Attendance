@@ -8,20 +8,22 @@
         android:id="@+id/tvrollno"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="0.37"
         android:textSize="20dp"
         android:text="rollno"
         android:gravity="center"
+        android:textColor="@color/colorPrimaryDark"
         />
 
     <TextView
         android:id="@+id/tvSname"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:textSize="20dp"
         android:text="name"
         android:gravity="center"
+        android:textColor="@color/colorPrimaryDark"
         />
 
 
@@ -29,11 +31,12 @@
     <TextView
         android:id="@+id/tvStatus"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:layout_weight="0.80"
         android:textSize="20dp"
         android:text="Status"
         android:gravity="center"
+        android:textColor="@color/colorPrimaryDark"
         />
 
 </LinearLayout>
