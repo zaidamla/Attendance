@@ -110,10 +110,16 @@ public class Report extends Fragment {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(getContext(), "submit", Toast.LENGTH_SHORT).show();
-                Intent i=new Intent(getContext(),ReportList.class);
-                i.putExtra("subject", subject.getSelectedItem().toString());
-                i.putExtra("date",DateButton.getText());
-                getContext().startActivity(i);
+                if(DateButton.getText().toString().equals("Select Date")){
+                    DateButton.setError("Date is not entered");
+                    DateButton.requestFocus();
+                }
+                else {
+                    Intent i = new Intent(getContext(), ReportList.class);
+                    i.putExtra("subject", subject.getSelectedItem().toString());
+                    i.putExtra("date", DateButton.getText());
+                    getContext().startActivity(i);
+                }
             }
         });
         return view;

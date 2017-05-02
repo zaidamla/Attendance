@@ -25,7 +25,7 @@ public class Student extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_student,container,false);
@@ -40,7 +40,30 @@ public class Student extends Fragment {
         submitStudent.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                OnReg();
+                if(rollno.getText().toString().trim().length()==0){
+                    rollno.setError("Roll Number is not entered");
+                    rollno.requestFocus();
+                }
+                if(eno.getText().toString().trim().length()==0) {
+                    eno.setError("Enrollment Number is not entered");
+                    eno.requestFocus();
+                }
+                if(name.getText().toString().trim().length()==0) {
+                    name.setError("Name is not entered");
+                    name.requestFocus();
+                }
+                if(contact.getText().toString().trim().length()==0) {
+                    contact.setError("Contact number is not entered");
+                    contact.requestFocus();
+                }
+                if(parent.getText().toString().trim().length()==0) {
+                    parent.setError("Parent's Contact is not entered");
+                    parent.requestFocus();
+                }
+
+                else{
+                        OnReg();
+                    }
             }
         });
 

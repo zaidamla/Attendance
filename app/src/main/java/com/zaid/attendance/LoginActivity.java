@@ -10,7 +10,7 @@ import android.widget.EditText;
 
 public class LoginActivity extends AppCompatActivity {
     EditText password, username;
-    /*Button login;*/
+    Button login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,7 @@ public class LoginActivity extends AppCompatActivity {
 
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
+        login = (Button) findViewById(R.id.login);
 
         /*login = (Button) findViewById(R.id.login);*/
         /*login.setOnClickListener(new View.OnClickListener() {
@@ -29,7 +30,24 @@ public class LoginActivity extends AppCompatActivity {
            startActivity(intent);
         }
         });*/
+        login.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                if(username.getText().toString().trim().length()==0){
+                    username.setError("Username is not entered");
+                    username.requestFocus();
+                }
+                else if(password.getText().toString().trim().length()==0){
+                    password.setError("Password is not entered");
+                    password.requestFocus();
+                }else
+                    OnLogin(v);
+
+            }
+        });
     }
+
 
     public void OnLogin(View view) {
         String Username = username.getText().toString();

@@ -67,7 +67,6 @@
         android:text="Login"
         android:textColor="@color/colorPrimary"
         android:id="@+id/login"
-        android:onClick="OnLogin"
         />
 </LinearLayout>
 </ScrollView>

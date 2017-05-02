@@ -39,7 +39,7 @@ public class backgroundTask extends AsyncTask<String,student_list,Void> {
     }
 
     //String json_string="https://zaidamla96.000webhostapp.com/android/select.php";
-    String json_string="http://192.168.0.8:80/Attendance/select.php";
+    String json_string="http://192.168.0.25:80/Attendance/select.php";
 
     @Override
     protected void onPreExecute() {
@@ -51,8 +51,8 @@ public class backgroundTask extends AsyncTask<String,student_list,Void> {
 //        adapter=new myadapter(arrayList);
 //        recyclerView.setAdapter(adapter);
         progressDialog=new ProgressDialog(ct);
-        progressDialog.setTitle("Please Wait.");
-        progressDialog.setMessage("loading..");
+        progressDialog.setTitle("Please Wait");
+        progressDialog.setMessage("Populating Students");
         progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
         progressDialog.show();

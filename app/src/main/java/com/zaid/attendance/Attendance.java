@@ -98,7 +98,7 @@ public class Attendance extends Fragment {
                     }
                 }, mYear,mMonth,mDay);
                 datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
-                //datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis()-1000);
+                datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis()-1000);
                 datePickerDialog.show();
             }
         });
@@ -106,21 +106,26 @@ public class Attendance extends Fragment {
         SubmitAttendance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "submit", Toast.LENGTH_SHORT).show();
+               /* Toast.makeText(getContext(), "submit", Toast.LENGTH_SHORT).show();*/
 //                backgroundTask backgroundTask=new backgroundTask(getContext());
 //                backgroundTask.execute();
-                stream_select=stream.getSelectedItem().toString();
+                if(DateButton.getText().toString().equals("Select Date")){
+                    DateButton.setError("Date is not entered");
+                    DateButton.requestFocus();
+                }
 
-                Log.v("info",stream_select + subject.getSelectedItem().toString()+DateButton.getText());
-                Intent i=new Intent(getContext(),ListActivity.class);
-                i.putExtra("stream",stream_select);
-                i.putExtra("subj", subject.getSelectedItem().toString());
-                i.putExtra("date",DateButton.getText());
-                getContext().startActivity(i);
-                String type="class";
-             Toast.makeText(getContext(), stream_select, Toast.LENGTH_SHORT).show();
+                else {
+                    stream_select = stream.getSelectedItem().toString();
 
-
+                /*Log.v("info",stream_select + subject.getSelectedItem().toString()+DateButton.getText());*/
+                    Intent i = new Intent(getContext(), ListActivity.class);
+                    i.putExtra("stream", stream_select);
+                    i.putExtra("subj", subject.getSelectedItem().toString());
+                    i.putExtra("date", DateButton.getText());
+                    getContext().startActivity(i);
+                    String type = "class";
+            /* Toast.makeText(getContext(), stream_select, Toast.LENGTH_SHORT).show();*/
+                }
 
 
             }
