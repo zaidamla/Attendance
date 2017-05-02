@@ -62,7 +62,13 @@ public class Student extends Fragment {
                 }
 
                 else{
+
                         OnReg();
+                    rollno.setText("");
+                    eno.setText("");
+                    name.setText("");
+                    contact.setText("");
+                    parent.setText("");
                     }
             }
         });

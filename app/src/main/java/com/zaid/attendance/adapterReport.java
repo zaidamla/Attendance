@@ -55,7 +55,7 @@ public class adapterReport  extends RecyclerView.Adapter <adapterReport.Recycler
             ReportGetSet reportGetSet=arrayList.get(position-1);
             holder.Rollno.setText(Integer.toString(reportGetSet.getRollno()));
              holder.Name.setText(reportGetSet.getName());
-            holder.Date.setText(reportGetSet.getDate());
+          //  holder.Date.setText(reportGetSet.getDate());
             holder.Status.setText(reportGetSet.getSatus());
             Log.v("name",reportGetSet.getName());
         }
@@ -80,7 +80,7 @@ public class adapterReport  extends RecyclerView.Adapter <adapterReport.Recycler
             {
                 Rollno=(TextView)view.findViewById(R.id.tvrollno);
                  Name=(TextView)view.findViewById(R.id.tvSname);
-                Date=(TextView)view.findViewById(R.id.tvDate);
+                //Date=(TextView)view.findViewById(R.id.tvDate);
                 Status=(TextView)view.findViewById(R.id.tvStatus);
                 this.viewtype=type_list;;
 

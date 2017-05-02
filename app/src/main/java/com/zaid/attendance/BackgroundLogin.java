@@ -2,6 +2,7 @@ package com.zaid.attendance;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.Toast;
@@ -129,8 +130,20 @@ public class BackgroundLogin extends AsyncTask<String,Void,String> {
         }
         else if (result.contains("Insert success")){
             Toast.makeText(context, "Student added", Toast.LENGTH_SHORT).show();
-            Intent intent=new Intent(context,MainActivity.class);
-            context.startActivity(intent);
+            AlertDialog.Builder builder=new AlertDialog.Builder(context);
+            builder.setMessage("Student added successfully");
+            builder.setCancelable(false);
+
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+
+            AlertDialog alertDialog=builder.create();
+            alertDialog.show();
+
 
 
         }

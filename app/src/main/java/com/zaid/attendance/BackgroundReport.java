@@ -88,7 +88,7 @@ public class BackgroundReport extends AsyncTask<String,ReportGetSet,Void> {
             {
                 JSONObject jo=jsonArray.getJSONObject(count);
                 count++;
-                ReportGetSet reportGetSet=new ReportGetSet(jo.getInt("Rollno"),jo.getString("Name"),jo.getString("Date"),jo.getString("Status"));
+                ReportGetSet reportGetSet=new ReportGetSet(jo.getInt("Rollno"),jo.getString("Name"),jo.getString("Status"));
                 publishProgress(reportGetSet);
                 Thread.sleep(1000);
             }

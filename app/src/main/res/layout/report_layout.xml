@@ -11,6 +11,7 @@
         android:layout_weight="1"
         android:textSize="20dp"
         android:text="rollno"
+        android:gravity="center"
         />
 
     <TextView
@@ -20,16 +21,10 @@
         android:layout_weight="1"
         android:textSize="20dp"
         android:text="name"
+        android:gravity="center"
         />
 
-    <TextView
-        android:id="@+id/tvDate"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textSize="20dp"
-        android:text="Date"
-        />
+
 
     <TextView
         android:id="@+id/tvStatus"
@@ -38,6 +33,7 @@
         android:layout_weight="1"
         android:textSize="20dp"
         android:text="Status"
+        android:gravity="center"
         />
 
 </LinearLayout>

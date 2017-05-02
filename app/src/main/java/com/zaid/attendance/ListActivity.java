@@ -1,8 +1,11 @@
 package com.zaid.attendance;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -79,7 +82,22 @@ public class ListActivity extends AppCompatActivity {
                 BackgroundAttendance backgroundAttendance=new BackgroundAttendance(this);
                 backgroundAttendance.execute(subj,String.valueOf(arrayList.get(i).getRollno()),date,arrayList.get(i).getStatus());
             }
-            Toast.makeText(this, "submit", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Attendance Successful", Toast.LENGTH_SHORT).show();
+            AlertDialog.Builder builder=new AlertDialog.Builder(this);
+            builder.setMessage("Attendance taken successfully");
+            builder.setCancelable(false);
+
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent=new Intent(getBaseContext(),MainActivity.class);
+                    startActivity(intent);
+                }
+            });
+
+            AlertDialog alertDialog=builder.create();
+            alertDialog.show();
+
         }
         return super.onOptionsItemSelected(item);
     }
