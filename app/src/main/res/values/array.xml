@@ -21,7 +21,7 @@
     <string-array name="tybca">
         <item>PHP</item>
         <item>OS2</item>
-        <item>ASP.NET</item>
+        <item>ASP</item>
         <item>UNIX</item>
     </string-array>
 </resources>
