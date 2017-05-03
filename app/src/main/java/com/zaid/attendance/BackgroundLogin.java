@@ -33,8 +33,8 @@ public class BackgroundLogin extends AsyncTask<String,Void,String> {
     protected String doInBackground(String... params) {
         String type = params[0];
         //String login_url = "https://zaidamla96.000webhostapp.com/android/login.php";
-        String login_url = "http://192.168.0.8:80/Attendance/login.php";
-        String insert_url = "http://192.168.0.8:80/Attendance/insert.php";
+        String login_url = "http://192.168.43.196:80/Attendance/login.php";
+        String insert_url = "http://192.168.43.196:80/Attendance/insert.php";
         //String insert_url = "https://zaidamla96.000webhostapp.com/android/insert.php";
         if(type.equals("login")){
             try {

@@ -30,7 +30,7 @@ public class back  extends AsyncTask<String,student_list,ArrayList<student_list>
         ctx=c;
     }
 
-    String json_string="http://192.168.0.8:80/Attendance/select.php";
+    String json_string="http://192.168.43.196:80/Attendance/select.php";
 
     @Override
     protected ArrayList<student_list> doInBackground(String... params) {

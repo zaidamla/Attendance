@@ -113,7 +113,7 @@ public class ListActivity extends AppCompatActivity {
             activity=(Activity)ct;
         }
 
-        String json_string="http://192.168.0.8:80/Attendance/select.php";
+        String json_string="http://192.168.43.196:80/Attendance/select.php";
 
         @Override
         protected void onPreExecute() {
